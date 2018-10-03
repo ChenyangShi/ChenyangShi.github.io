@@ -13,11 +13,11 @@ Education
 ======
 * B.S. in Southwest Jiaotong University, Chengdu, Sichuan, 2019 (expected)
   * Major in Computer Science and Technology. 09/2016 - Now
-  * Major in Pharmaceutics Engineering. 09/2015-07/2016
+  * Major in Pharmaceutics Engineering. 09/2015 - 07/2016
 
 Related Experience
 ======
-* 08/2018: Kaggle Featured - Home Credit Default Risk   
+* 08/2018: Kaggle Featured - Home Credit Default Risk[competition profile](https://www.kaggle.com/herlobster)    
   Top 8% Brown Medal, Group Leader.
   * Achieved exploratory data analysis and feature engineering, increasing features from 200 to 1000.
   * Trained and evaluated 5 machine learning models (Lightgbm, Xgboost, Catboost, Neural Network and Stacking) with cross-validation to predict how capable each applicant is of repaying a loan.
