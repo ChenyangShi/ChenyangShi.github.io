@@ -10,7 +10,7 @@ locale                   : "en-US"
 title                    : "Olivia Shi"
 title_separator          : "-"
 name                     : &name "Olivia Shi"
-description              : &description "Machine Learning, Data Science, Computer Vision, Natural Language Processing. "
+description              : &description "A happy girl (∩_∩) . "
 url                      : https://olivia-shi.github.io
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "olivia-shi.github.io"
