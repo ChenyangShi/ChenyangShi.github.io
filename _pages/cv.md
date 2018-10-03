@@ -9,7 +9,8 @@ redirect_from:
 
 {% include base_path %}
 
-Here if the PDF version for you to check out: [CV](https://drive.google.com/open?id=1A4nsId3cwoOH1Rn5pi9ewEDuZ5bNn1jS)
+Here is the PDF version for you to check out: [CV](https://drive.google.com/open?id=1A4nsId3cwoOH1Rn5pi9ewEDuZ5bNn1jS)
+--------------    
 
 Education
 ======
