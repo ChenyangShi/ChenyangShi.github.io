@@ -11,49 +11,36 @@ redirect_from:
 
 Education
 ======
-* B.S. in GitHub, GitHub University, 2012
-* M.S. in Jekyll, GitHub University, 2014
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
+* B.S. in Chengdu, Sichuan, Southwest Jiaotong University, 2019(expected)
 
-Work experience
+Related Experience
 ======
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+* 08/2018: Kaggle Featured - Home Credit Default Risk | Top 8% Brown Medal; Group Leader.
+  * Achieved exploratory data analysis and feature engineering, increasing features from 200 to 1000.
+  * Trained and evaluated 5 machine learning models (Lightgbm, Xgboost, Catboost, Neural Network and Stacking) with cross-validation to predict how capable each applicant is of repaying a loan.
+  * Extracted and reprocessed time series features to dramatically increase the final AUC score.
+  * Performed Bayesian Optimization to find the optimal combination of hyper-parameters.
+  * Advanced the final model with local AUC: 0.7979 and private board: 0.795, ranking top 8%.
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+* 04/2018: Internet Searching Engine project | Supervisor: Xiao Wu.
+  * Programmed web spider to filter and save 1000 websites as text,including English and Chinese.
+  * Accomplished words cutting and Stemming using NLTK and Jieba. 
+  * Accomplished computing similarity between every two ducuments with Cosine Distance.
+  * Performed a k-means model to cluster 500 English websites to 16 classes and display represented ducuments in the biggest class.
+  
+* 05/2017-03/2018: Overlapping Social Network Detection Algorithms Research | Supervisor: Hongmei Chen.
+  * Reproduced Clique Percolation Method and Weak Clique Percolation Method algorithms.
+  * Visualized and analyzed community structure with Gephi, feeding Stanford Large Network Dataset.
+  * Paralled the algorithms using scala.
   
 Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
-
-Publications
-======
-  <ul>{% for post in site.publications %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
+* Programming Languages: Python, R, Java, C, C++, Scala.
+* Python Packages: Pandas, Numpy, Matplotlib, Scipy, Sklearn, Beautifulsoup, Seaborn, NLTK, Tensorflow, Keras.
+* Software & Tools: Jupyter notebook, Gephi, LaTeX, Spark.
   
-Talks
+Extracurricular Activies
 ======
-  <ul>{% for post in site.talks %}
-    {% include archive-single-talk-cv.html %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+* A member of debating team in school of Life Science.
+* Volunteer in Life Mystery Museum at Chengdu city.
+* A member of Mathematic Modeling Institute in Southwest
