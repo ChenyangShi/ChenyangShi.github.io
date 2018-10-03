@@ -10,7 +10,7 @@ locale                   : "en-US"
 title                    : "Olivia Shi"
 title_separator          : "-"
 name                     : &name "Olivia Shi"
-description              : &description "A senior student at Southwest Jiaotong University"
+description              : &description "Machine Learning, Data Science, Computer Vision, Natural Language Processing. "
 url                      : https://olivia-shi.github.io
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "olivia-shi.github.io"
@@ -81,11 +81,11 @@ analytics:
 author:
   name             : "Olivia Shi"
   avatar           : "profile.png"
-  bio              : "A senior student at SWJTU"
-  location         : "Chengdu, Sichuang, China"
+  bio              : "Machine Learning, Data Science, Computer Vision, Natural Language Processing."
+  location         : "Chengdu, Sichuan, China"
   employer         :
-  googlescholar    : "http://Chenyang-Shi.com"
-  email            :
+  #googlescholar    : "http://Chenyang-Shi.com"
+  email            : "Olivia.C.Shi@gmail.com"
   uri              :
   bitbucket        :
   codepen          :
@@ -99,7 +99,7 @@ author:
   instagram        :
   lastfm           :
   linkedin         :
-  orcid            : "http://orcid.org/oliviashi"
+  #orcid            : "http://orcid.org/oliviashi"
   pinterest        :
   soundcloud       :
   stackoverflow    : # http://stackoverflow.com/users/123456/username
