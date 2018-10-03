@@ -17,7 +17,7 @@ Education
 
 Related Experience
 ======
-* 08/2018: Kaggle Featured - Home Credit Default Risk (<font color=#0099ff>[competition profile](https://www.kaggle.com/herlobster) </font>)    
+* 08/2018: Kaggle Featured - Home Credit Default Risk (<font color=blue>[competition profile](https://www.kaggle.com/herlobster)</font>)    
   Top 8% Brown Medal, Group Leader.
   * Achieved exploratory data analysis and feature engineering, increasing features from 200 to 1000.
   * Trained and evaluated 5 machine learning models (Lightgbm, Xgboost, Catboost, Neural Network and Stacking) with cross-validation to predict how capable each applicant is of repaying a loan.
