@@ -11,7 +11,7 @@ redirect_from:
 
 Education
 ======
-* B.S. in Chengdu, Sichuan, Southwest Jiaotong University, 2019(expected)
+* B.S. in Chengdu, Sichuan, Southwest Jiaotong University, 2019 (expected)
 
 Related Experience
 ======
@@ -23,10 +23,10 @@ Related Experience
   * Advanced the final model with local AUC: 0.7979 and private board: 0.795, ranking top 8%.
 
 * 04/2018: Internet Searching Engine project | Supervisor: Xiao Wu.
-  * Programmed web spider to filter and save 1000 websites as text,including English and Chinese.
+  * Programmed web spider to filter and save 1000 websites as text, including English and Chinese.
   * Accomplished words cutting and Stemming using NLTK and Jieba. 
-  * Accomplished computing similarity between every two ducuments with Cosine Distance.
-  * Performed a k-means model to cluster 500 English websites to 16 classes and display represented ducuments in the biggest class.
+  * Accomplished computing similarity between every two documents with Cosine Distance.
+  * Performed a k-means model to cluster 500 English websites to 16 classes and display represented documents in the biggest class.
   
 * 05/2017-03/2018: Overlapping Social Network Detection Algorithms Research | Supervisor: Hongmei Chen.
   * Reproduced Clique Percolation Method and Weak Clique Percolation Method algorithms.
@@ -43,4 +43,4 @@ Extracurricular Activies
 ======
 * A member of debating team in school of Life Science.
 * Volunteer in Life Mystery Museum at Chengdu city.
-* A member of Mathematic Modeling Institute in Southwest
+* A member of Mathematical Modeling Institute in Southwest Jiaotong University
