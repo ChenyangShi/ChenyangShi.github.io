@@ -8,6 +8,6 @@ redirect_from:
   - /about.html
 ---
 
-This is Olivia Shi's home on the web!
+Hello. This is Olivia Shi's home on the web!
 
-Lorem ipsum.
+Now, I am a senior student at Southwest Jiaotong University. My research interests lie on Computer Vision, Machine Learning, Natural Language Processing, and Data Science.
