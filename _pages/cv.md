@@ -11,7 +11,9 @@ redirect_from:
 
 Education
 ======
-* B.S. in Chengdu, Sichuan, Southwest Jiaotong University, 2019 (expected)
+* B.S. in Southwest Jiaotong University, Chengdu, Sichuan, 2019 (expected)
+  * Major in Computer Science and Technology. 09/2016 - Now
+  * Major in Pharmaceutics Engineering. 09/2015-07/2016
 
 Related Experience
 ======
