@@ -10,7 +10,7 @@ locale                   : "en-US"
 title                    : "Olivia Shi"
 title_separator          : "-"
 name                     : &name "Olivia Shi"
-description              : &description "A happy girl (∩_∩) . "
+description              : &description "A happy girl (∩_∩). "
 url                      : https://olivia-shi.github.io
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "olivia-shi.github.io"
@@ -81,7 +81,7 @@ analytics:
 author:
   name             : "Olivia Shi"
   avatar           : "profile2.png"
-  bio              : "Machine Learning, Data Science, Computer Vision, Natural Language Processing."
+  bio              : "A happy girl (∩_∩). "
   location         : "Chengdu, Sichuan, China"
   employer         :
   #googlescholar    : "http://Chenyang-Shi.com"
@@ -93,7 +93,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "olivia-shi"
+  github           : "https://github.com/olivia-shi"
   google_plus      :
   keybase          :
   instagram        :
@@ -105,7 +105,7 @@ author:
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
   tumblr           :
-  twitter          : "replacethistwitterhandle"
+  #twitter          : "replacethistwitterhandle"
   vine             :
   weibo            :
   xing             :
