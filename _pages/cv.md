@@ -24,9 +24,9 @@ Related Experience
   Top 8% Brown Medal, Group Leader.
   * Achieved exploratory data analysis and feature engineering, increasing features from 200 to 1000.
   * Trained and evaluated 5 machine learning models (Lightgbm, Xgboost, Catboost, Neural Network and Stacking) with cross-validation to predict how capable each applicant is of repaying a loan.
-  * Extracted and reprocessed time series features to dramatically increase the final AUC score.
+  * Extracted and reprocessed time series related features to dramatically increase the final AUC score, and it turned out those features are\textbf{ 'magic'} ones.
   * Performed Bayesian Optimization to find the optimal combination of hyper-parameters.
-  * Advanced the final model with local AUC: 0.7979 and private board: 0.795, ranking top 8%.
+  * Advanced the final model based on Stacking, which ended up with local AUC: 0.7979 and private board: 0.795, ranking \textbf{top 8}\%.
 
 * 04/2018: Internet Searching Engine project   
   Supervisor: Xiao Wu, NLP, ML.
@@ -37,10 +37,17 @@ Related Experience
   
 * 05/2017-03/2018: Overlapping Social Network Detection Algorithms Research   
   Supervisor: Hongmei Chen, Graph Data Mining.
-  * Reproduced Clique Percolation Method and Weak Clique Percolation Method algorithms.
-  * Visualized and analyzed community structure with Gephi, feeding Stanford Large Network Dataset.
-  * Paralled the algorithms using scala.
+  * Reproduced Clique Percolation Method and Weak Clique Percolation Method algorithms using java and python.
+  * Visualized and analyzed community structure with Gephi, feeding data from Stanford Large Network Dataset.
+  * Evaluated football dataset with high accuracy.
+  * Paralleled the algorithms using scala.
   
+Honors and Awards
+=========
+* Students Scholarship for five times.    2016 - 2018
+* Excellent volunteer in Life Mystery Museum at Chengdu city.     Mar. 2016
+* Third prize, China Undergraduate Mathematical Contest in Modeling.     May. 2016
+
 Skills
 ======
 * Programming Languages: Python, R, Java, C, C++, Scala.
