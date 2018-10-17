@@ -10,4 +10,7 @@ redirect_from:
 
 Hello. This is Olivia Shi's home on the web!
 
-Now, I am a senior student at Southwest Jiaotong University. My research interests lie on Computer Vision, Machine Learning, Natural Language Processing, and Data Science.
+Now, I am a senior student at Southwest Jiaotong University. My research interests is:
+* Natural Language Processing, Data Science, Machine Learning and related area. 
+* Specifically NLP applications for social science, social commonsense, social media, and conversational artificial intelligence.
+* Combinaton of Computer Vision and NLP.
