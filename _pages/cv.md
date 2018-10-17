@@ -24,9 +24,9 @@ Related Experience
   Top 8% Brown Medal, Group Leader.
   * Achieved exploratory data analysis and feature engineering, increasing features from 200 to 1000.
   * Trained and evaluated 5 machine learning models (Lightgbm, Xgboost, Catboost, Neural Network and Stacking) with cross-validation to predict how capable each applicant is of repaying a loan.
-  * Extracted and reprocessed time series related features to dramatically increase the final AUC score, and it turned out those features are\textbf{ 'magic'} ones.
+  * Extracted and reprocessed time series related features to dramatically increase the final AUC score, and it turned out those features are **'magic'** ones.
   * Performed Bayesian Optimization to find the optimal combination of hyper-parameters.
-  * Advanced the final model based on Stacking, which ended up with local AUC: 0.7979 and private board: 0.795, ranking \textbf{top 8}\%.
+  * Advanced the final model based on Stacking, which ended up with local AUC: 0.7979 and private board: 0.795, ranking **top 8\%**.
 
 * 04/2018: Internet Searching Engine project   
   Supervisor: Xiao Wu, NLP, ML.
