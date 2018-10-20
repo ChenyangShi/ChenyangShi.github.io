@@ -9,8 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-Here is a PDF version for you to check out: --->[CV](https://drive.google.com/file/d/1xU-PNbNW4Q1v1Dlic9vAU8r4id3Jmqe5/view?usp=sharing)     
-    
+Here is a PDF version for you to check out: --->[CV](https://drive.google.com/file/d/1MEtapR-SGuBygwqiGl2xe7sX6X-ezpOV/view?usp=sharing)     
     
 Education
 ======
