@@ -22,11 +22,11 @@ Related Experience
 ======
 * 08/2018: Kaggle Featured - Home Credit Default Risk ([Link: competition profile](https://www.kaggle.com/herlobster))    
   Top 8% Brown Medal, Group Leader.
-  * Achieved exploratory data analysis and feature engineering, increasing features from 200 to 1000.
-  * Trained and evaluated 5 machine learning models (Lightgbm, Xgboost, Catboost, Neural Network and Stacking) with cross-validation to predict how capable each applicant is of repaying a loan.
-  * Extracted and reprocessed time series related features to dramatically increase the final AUC score, and it turned out those features are **'magic'** ones.
-  * Performed Bayesian Optimization to find the optimal combination of hyper-parameters.
-  * Advanced the final model based on Stacking, which ended up with local AUC: 0.7979 and private board: 0.795, ranking **top 8\%**.
+  * performed data exploratory analysis to get a deep understanding of the big data.
+  * Utilized feature engineering and domain knowledge to add more than 1000 time-series related features to boost cross-validation AUC score, and it turned out those features are **'magic'** ones.
+  * Implemented and evaluated different models: Lightgbm, Xgboost, Catboost, Neural Network to accurately predict the capability of an applicant of repaying a loan.
+  * Performed Bayesian Optimization to find the optimal combination of hyper-parameters, and developed more advanced ensemble and stacking strategies to reduce variance and enhance AUC score.
+  * Achieved a bronze medel with ranking **top 8%** by hard-working, effective communication and great leadership within nearly 2 month.
 
 * 04/2018: Internet Searching Engine project   
   Supervisor: Xiao Wu, NLP, ML.
