@@ -19,7 +19,7 @@ Education
 
 Related Experience
 ======
-* 08/2018: Kaggle Featured - Home Credit Default Risk (【Link: competition profile】](https://www.kaggle.com/herlobster))    
+* 08/2018: Kaggle Featured - Home Credit Default Risk ([【Competition Link】](https://www.kaggle.com/herlobster))    
   Top 8% Brown Medal, Group Leader.
   * performed data exploratory analysis to get a deep understanding of the big data.
   * Utilized feature engineering and domain knowledge to add more than 1000 time-series related features to boost cross-validation AUC score, and it turned out those features are **'magic'** ones.
