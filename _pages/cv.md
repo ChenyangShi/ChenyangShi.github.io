@@ -27,7 +27,7 @@ Related Experience
   * Performed Bayesian Optimization to find the optimal combination of hyper-parameters, and developed more advanced ensemble and stacking strategies to reduce variance and enhance AUC score.
   * Achieved a bronze medel with ranking **top 8%** by hard-working, effective communication and great leadership within nearly 2 month.
 
-* 04/2018: Internet Searching Engine project [(project1)](https://drive.google.com/file/d/1nQFZtBnKrTPpt56UQFAbWPHRlE6o_8hn/view?usp=sharing) [(project2)](https://drive.google.com/file/d/1E_2czlhqwGmP0J1yq1YZaTSWsNC56spf/view?usp=sharing)       
+* 04/2018: Internet Searching Engine project [(Codes)](https://github.com/olivia-shi/olivia-shi.github.io/tree/master/NLP)       
 
   Supervisor: Xiao Wu, NLP, ML.
   * Programmed web spider to filter and save 1000 websites as text, including English and Chinese.
