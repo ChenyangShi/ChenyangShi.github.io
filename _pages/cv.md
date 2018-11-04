@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-Here is a PDF version for you to check out: --->[CV](https://drive.google.com/file/d/1MEtapR-SGuBygwqiGl2xe7sX6X-ezpOV/view?usp=sharing)     
+Here is a PDF version for you to check out: --->[CV](https://github.com/olivia-shi/olivia-shi.github.io/blob/master/files/Olivia_CV.pdf)     
     
 Education
 ======
