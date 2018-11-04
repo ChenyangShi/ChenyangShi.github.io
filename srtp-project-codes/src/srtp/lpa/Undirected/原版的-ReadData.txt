@@ -1,0 +1,150 @@
+package cpm;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+
+public class ReadData {
+	
+	public int nodenum;	//节点数	
+	public int edgenum = 0;//所有边数
+//	public double totaledgeweight=0;//所有边权重
+	
+	public LinkedList<Integer> neighborlist[];//头节点+表结点
+//	public HashMap weightmap[];//存入权值
+	
+//	public double strength[];//强度
+//	public int degree[];//度
+	
+	public ArrayList<Edge> edges = new ArrayList<Edge>();//数据类型为Edge的索引型变量 edges
+	
+	public ArrayList<Edge> edgelist[];//边数组 数据类型为Edge
+	
+	public ReadData(String filename)
+	{
+		
+		 try
+			{
+				FileReader fr = new FileReader(filename);
+				BufferedReader reader = new BufferedReader(fr);//以行读取文件
+				String line = "";
+				line = reader.readLine();//读一行文件
+				String atts[] = line.split("\\s+");//按照空白符分割成数组元素
+				nodenum = Integer.parseInt(atts[0]);//取得总结点数
+					
+				System.out.println("nodenum: "+nodenum);
+				
+				System.out.println("reading: "+filename);
+				
+			//	public LinkedList<Integer> neighborlist[] = new LinkedList [nodenum];
+				
+				neighborlist = new LinkedList [nodenum];//每个节点都引出一条链表 存放相邻节点
+				for(int i=0;i<nodenum;i++)
+					neighborlist[i] = new LinkedList<Integer>();
+			
+			//public HashMap weightmap[] = new HashMap [nodenum];
+			/*	
+				weightmap = new HashMap [nodenum];
+				for(int i=0;i<nodenum;i++)
+					weightmap[i] = new HashMap<Integer,Double>();
+			*/	
+			//	public double strength[] = new double [nodenum];
+			/*	
+				strength = new double[nodenum];
+				for(int i=0;i<nodenum;i++)
+					strength[i] = 0;//初始化联系紧密度为0
+			*/	
+			//	public degree[] = new int [nodenum];
+				
+			/*	degree = new int[nodenum];
+				for(int i=0;i<nodenum;i++)
+					degree[i] = 0; //初始化度为0
+			*/
+			//	public ArrayList<Edge> edgelist[] = new ArrayList [nodenum];
+				
+				edgelist = new ArrayList[nodenum];//每个节点包含的所有边
+				for(int i=0;i<nodenum;i++)
+					edgelist[i]=new ArrayList<Edge>();
+				
+				int linenumber = 0;
+				
+				String atts2[];
+				int nodeid1;
+				int nodeid2;
+			//	double edgeweight;
+				while((line = reader.readLine())!=null)//读取的一行不为空时
+				{
+					linenumber++;
+					System.out.println("reading line: "+linenumber);//显示正在读的行数
+					atts2 = line.split("\\s+");//以空白符为分隔符 把正在读取的一行的数据划分后存入字符数组attr2[]
+					System.out.println(atts2[0]);
+					System.out.println(atts2[1]);
+				//	System.out.println(atts2[2]);
+					nodeid1 = Integer.parseInt(atts2[0]);
+					nodeid2 = Integer.parseInt(atts2[1]);
+
+				//	edgeweight = Double.parseDouble(atts2[2]);//String到double
+										
+				//	weightmap[nodeid1].put(nodeid2, edgeweight);
+				//	weightmap[nodeid2].put(nodeid1, edgeweight);
+					
+					
+					//	if(Math.abs(edgeweight)>0.0001)
+						{
+						
+							if(!neighborlist[nodeid1].contains(nodeid2))
+							{
+								edgenum++;//增加一条边
+							//	totaledgeweight += edgeweight;
+							//	strength[nodeid1] += edgeweight;//节点nodeid1的强度加上该边权重
+							//	strength[nodeid2] += edgeweight;
+							//	degree[nodeid1]++;//节点度加1
+							//	degree[nodeid2]++;
+								neighborlist[nodeid1].add(nodeid2);//节点nodeid2连在nodeid1的链表上
+								neighborlist[nodeid2].add(nodeid1);//节点nodeid1连在nodeid2的链表上
+								
+								Edge newed = new Edge(nodeid1,nodeid2);//从nodeid1到nodeid2建立一条边
+								edges.add(newed);//加入edges数组
+								edgelist[nodeid1].add(newed);//添加元素(nodeid1,nodeid2)
+								edgelist[nodeid2].add(newed);
+							}
+						}
+					
+				}
+				
+				
+				System.out.println("nodenum: "+nodenum);
+				System.out.println("edgenum: "+edgenum);
+				System.out.println();
+				
+				reader.close();//关闭文件
+				fr.close();
+			}
+		 catch(IOException e)
+			{
+				System.out.println("Can not find the file "+filename);
+			}
+		
+	}
+	
+	
+	/*public static void main(String args[])
+	{
+		String filename[] = {"Graph.txt","modified_new_astro-ph.txt","modified_new_cond-mat.txt","modified_new_netsience.txt",
+				"modified_new_train.txt","new_auth.txt","new_dolphins.txt","new_football.txt","new_geom.txt",
+				"new_jazz.txt","new_karate.txt","new_lesmis.txt","modified_kingjames.txt","modified_new_cond-mat-2003.txt",
+				"modified_new_cond-mat-2005.txt","modified_new_hep-th.txt","new_celegansneural.txt","new_windsurfers.txt"};
+	
+		for(int i=0;i<filename.length;i++)
+		{
+			ReadData rd = new ReadData(filename[i]);//类对象rd
+		}
+		
+	}
+	*/
+
+}
+

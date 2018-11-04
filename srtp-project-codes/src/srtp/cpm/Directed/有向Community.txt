@@ -1,0 +1,26 @@
+package cpm;
+
+import java.util.*;
+import java.util.LinkedHashSet;
+public class Community {
+	
+	public Set<Integer> set = new LinkedHashSet<Integer>();
+	/*
+	 * @override toString·½·¨
+	 * @see java.lang.Object#toString()
+	 */
+	public String toString()
+	{
+		String s = "";
+		
+		for(int node:set)
+		{
+			s = s + (node) + " ";
+		}
+		
+		s += "\n";
+		
+		return s;
+	}
+}
+

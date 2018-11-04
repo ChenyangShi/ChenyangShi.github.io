@@ -1,0 +1,303 @@
+package cpm;
+
+import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.Set;
+import java.util.LinkedHashSet;
+import java.util.HashSet;
+
+/*
+ * @CliquePercolationMethodDirected
+ * 
+ */
+
+public class CliquePercolationMethod<T>
+{
+	int k_clique = 4;//4-clique
+	
+	int nodenum;//节点数目
+	int counter = 0;//计数器 统计找到的4-clique数目打印显示
+	 
+	ArrayList<Integer> neighbor[];
+
+	LinkedList<Integer> top_container[];
+	LinkedList<Integer> bottom_container[];
+	
+	Set<Integer> set_node;
+	ArrayList<Set<Integer>> cliques = new ArrayList<Set<Integer>>();
+	
+	ArrayList<Community> communities = new ArrayList<Community>();//所有社区集合
+
+	boolean visit[];
+	boolean top_mark[];
+	boolean bottom_mark[];
+	
+	/*
+	 * @构造方法 
+	 * 实现变量初始化以及从文件中传值 和初始化
+	 */
+	public CliquePercolationMethod(String filename)
+	{
+		ReadData r = new ReadData(filename);
+		nodenum = r.nodenum;
+		
+		//初始化visit[] top_mark[] bottom_mark[]
+		visit = new boolean[nodenum];
+		top_mark = new boolean[nodenum];
+		bottom_mark = new boolean[nodenum];
+		
+		for(int i = 0; i< nodenum; i++)
+		{
+			visit[i] = false;
+			top_mark[i] = true;
+			bottom_mark[i] = true;
+		}
+		//分配空间 初始化
+		neighbor = new ArrayList [nodenum];
+		for(int i = 0; i < nodenum; i++)
+			neighbor[i] = new ArrayList<Integer>();	
+		neighbor = r.neighbor;
+		
+		top_container = new LinkedList[nodenum];
+		for(int i = 0; i < nodenum; i++)
+			top_container[i] = new LinkedList<Integer>();
+		top_container = r.top_container;
+		
+		bottom_container = new LinkedList[nodenum];
+		for(int i = 0; i < nodenum; i++)
+			bottom_container[i] = new LinkedList<Integer>();
+		bottom_container = r.bottom_container;
+		
+	}
+	
+	/*
+	 *@FindAllCliques
+	 *此方法找到所有4-directed-clique
+	 */
+	public void FindAllCliques()
+	{
+		int visitednum = 0;
+		while(visitednum < nodenum)
+		{
+			set_node = new LinkedHashSet<Integer>();
+			ArrayList<Integer> Temp = new ArrayList<Integer>();
+			ArrayList<Integer> head = new ArrayList<Integer>();
+			int added_node = 0;
+			
+			int i = 0; int j;
+			while(visit[i])//从头开始找未被访问过的头节点i
+				i++;
+			
+			visit[i] = true;//标记已访问
+			visitednum++;
+			
+			int index = 3;
+			int c = 0;
+			
+			//以下循环用于找到给定节点i的所有4-directed-clique
+			while(true)
+			{
+				set_node.add(i);//放进Set里
+				added_node++;//统计+1
+				for(j = 0; j < top_container[i].size(); j++)//j相当于top_container链表的指针
+				{   
+					int top_nb = top_container[i].get(j);//取出下标j的元素 放入Set里（以下会实现filter，所以放进Set的元素都会形成一个4-clique）
+					if(top_mark[top_nb] == false) //在container里标记为不能访问
+						continue;
+				
+					added_node++;//计数加1
+					set_node.add(top_nb);//放进Set里
+					
+					//过滤top_container[i]
+					for(int m = 1; m < top_container[i].size(); m++)
+					{
+						int top_nb1 = top_container[i].get(m);
+						if(top_mark[top_nb1] == false)//跳过 false的节点
+							continue;
+						if(!neighbor[top_nb].contains(top_nb1))//查找top_nb的邻居节点 如果没有节点i的元素
+						{	
+							top_mark[top_nb1] = false;
+						}
+					}
+					//过滤bottom_container[i]
+					for(int n = 0; n < bottom_container[i].size(); n++)
+					{
+						int bot_nb2 = bottom_container[i].get(n);
+						if(bottom_mark[bot_nb2] == false)
+							continue;
+						if(!neighbor[top_nb].contains(bot_nb2))//查找top_nb的邻居节点
+						{	
+							bottom_mark[bot_nb2] = false;
+						}			
+					}
+				
+					
+					if(added_node == 4)//只要取够了4个节点就一定找到了一个4-directed-clique
+					{	
+					//	found = true;
+						counter++;
+						c++;
+						System.out.println("~~~~" + counter + set_node);
+						
+						
+						cliques.add(set_node);//找到的4-directed-clique从set里放到cliques数组上
+						
+						for(int e = 0; e< nodenum; e++)//复原标记
+						{
+							if(top_mark[e] == false)
+								top_mark[e] = true;
+							if(bottom_mark[e] == false)
+								bottom_mark[e] = true;	
+						}
+					
+						/*
+						 * Rolling 4-directed-clique
+						 */
+						
+						if(c == 1){
+							for(int el: set_node) //把第一次找到的set放到head链表里
+								head.add(el);
+							top_mark[head.get(index)] = false;//一直把head的index=3/2/1标为false
+						}
+						
+						if(c > 1){
+							for(int el: set_node) //把除了head以外的每个set放到临时链表里(按顺序尾插)
+								Temp.add(el);
+							
+							top_mark[head.get(index)] = false;//一直把head的index=2/1/0标为false
+							
+							for(int q = 3; q < Temp.size(); q = q+4 )//把rolling过的点标为false
+								top_mark[Temp.get(q)] = false;
+						}
+						
+						added_node = 0;//清零
+						set_node = new LinkedHashSet<Integer>();//清空
+								
+						break;//跳出for循环 重新开始
+					}
+				}//end for
+				
+				//for循环结束后
+				if(j == top_container[i].size()&&added_node != 4)//当Rolling的节点roll到container上最后一个点 还找不到一个clique
+				{	
+					for(int e = 0; e< nodenum; e++)//复原所有标记
+					{
+						if(top_mark[e] == false)
+							top_mark[e] = true;
+						if(bottom_mark[e] == false)
+							bottom_mark[e] = true;	
+					}
+					//如果head为空 说明需要更换头结点
+					if(head.size() == 0)
+					{
+						set_node = new LinkedHashSet<Integer>();
+						added_node = 0;//清零
+						break;//跳出循环 while(true)
+					}
+					if(head.size() != 0)//head不为空  换一个rolling
+					{
+
+						index--;
+						if(index >0 ) {
+							top_mark[head.get(index)] = false;//换前一个点为Rolling节点
+							Temp = new ArrayList<Integer>();//换一个Rolling就换一个Temp
+							
+							added_node = 0;//清零
+							set_node = new LinkedHashSet<Integer>();//清空
+							
+						}
+						else if(index == 0) //头结点不参与Rolling
+							break;//跳出循环 while(true)
+					}
+
+				}
+
+			}//end while(true)
+			
+			//Temp = null;//换一个头结点时,清空
+			//c = 0;
+		}//end while
+		
+	//	System.out.println(cliques);
+	}
+	
+	/*
+	 *@MergeCliques
+	 *合并
+	 */
+	public void MergeCliques()//遍历所有的cliques
+	{
+		boolean canMerge = true;
+		while (canMerge)
+		{
+			canMerge = false;
+			Set<Integer> cliqueToMerge = null;
+			for (Set<Integer> firstClique : cliques) 
+			{
+				for (Set<Integer> secondClique : cliques) 
+				{
+					if (getSharedNodes(firstClique, secondClique) >= k_clique - 1) 
+					{
+						cliqueToMerge = secondClique;
+						break;
+					}
+				}//end for
+				if (cliqueToMerge != null) 
+				{
+					canMerge = true;
+					firstClique.addAll(cliqueToMerge);
+					break;
+				}
+			}//end for
+			cliques.remove(cliqueToMerge);
+		}	
+	}
+
+	private int getSharedNodes(Set<Integer> firstClique, Set<Integer> secondClique)
+	{
+		if(firstClique == secondClique)//自身
+			return 0;
+		int res = 0;
+		for(int el1 : firstClique)
+		{
+			for(int el2 : secondClique)
+			{
+				if(el1 == el2)
+					res++;
+			}
+		}
+		return res;
+	}
+	/*
+	 * @Show
+	 * 显示出所有划分好的社区
+	 */
+	public void Show()
+	{
+		//cliques数组链表上的每个元素就是每个社区	
+		for(Set<Integer> elm: cliques)
+		{
+			Community community = new Community();
+			community.set.addAll(elm);//把cliques集合中的所有对象添加到community中
+			communities.add(community);//把一个社区添加到社区集合
+		}
+		
+		for(int i = 0; i < communities.size(); i++)
+		{
+			System.out.print("community "+i +": ");
+			System.out.print(communities.get(i));
+		}
+	}
+	
+	public static void main(String [] args)
+	{
+		CliquePercolationMethod cpm = new CliquePercolationMethod("football.txt");
+		
+		cpm.FindAllCliques();
+		cpm.MergeCliques();
+		cpm.Show();
+		System.out.println("End");
+	}
+}
+
+

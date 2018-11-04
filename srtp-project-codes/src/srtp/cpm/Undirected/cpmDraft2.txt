@@ -1,0 +1,201 @@
+package cpm;
+
+import java.util.LinkedList;
+
+/*
+ * @CliquePercolationMethod
+ * 
+ */
+
+public class CliquePercolationMethod 
+{
+	int k_clique = 4;//4-clique
+	
+	int nodenum;//节点数目
+	int counter = 0;//计数器 统计找到的4-clique数目并打印显示
+	 
+	LinkedList<Integer> neighbor[];
+//	LinkedList<Integer>common_node = new LinkedList<Integer>();
+	LinkedList<Community> communities = new LinkedList<Community>();//所有社区集合
+
+	boolean visit[];
+	
+	
+	/*
+	 * @构造方法 
+	 * 实现变量初始化以及从文件中传值 
+	 */
+	public CliquePercolationMethod(String filename)
+	{
+		ReadData r = new ReadData(filename);
+		nodenum = r.nodenum;
+		
+		//初始化visit[]
+		visit = new boolean[nodenum];
+		for(int i = 0; i< nodenum; i++)
+			visit[i] = false;
+		
+		//分配空间 初始化表节点
+		neighbor = new LinkedList [nodenum];
+		for(int i = 0; i < nodenum; i++)
+			neighbor[i] = new LinkedList<Integer>();
+		
+		//初始化neighbor[]
+		neighbor = r.neighbor;	
+	}
+	
+	/*
+	 *@Beginning
+	 *此方法实现派系过滤算法
+	 */
+	public void Beginning()
+	{
+		int visitednum = 0;
+		while(visitednum < nodenum)
+		{
+			int i = 0;
+			while(visit[i])//从头开始找未被访问过的头节点i
+				i++;
+			
+			visit[i] = true;//标记已访问
+			visitednum++;
+			
+			//每次while循环都分配一个common_node链表
+			LinkedList<Integer>common_node = new LinkedList<Integer>();
+			common_node.add(i);//将当前访问的头节点添加进common_node链表中
+			
+			boolean found = false;
+			
+			/*
+			 * 以下三层循环用于找到一个4-clique
+			 */
+			for(int j = 0; j < neighbor[i].size(); j++)//遍历头节点i的所有表节点
+			{
+				int nb_j = neighbor[i].get(j);//get()方法，获取的是第j+1个表结点
+				
+				for(int m = j+1; m < neighbor[i].size(); m++)
+				{
+					int nb_m = neighbor[i].get(m);//获取的是第j+2个表结点
+					
+					for(int n = m+1; n < neighbor[i].size(); n++)
+					{
+						int nb_n = neighbor[i].get(n);//获取的是第j+3个表结点
+						
+						/*
+						 * if用于判断是否构成一个4节点的clique
+						 * 第j+1个表结点中存在第j+3个表结点且第j+2个表结点中存在第j+3个表结点
+						 */
+						if(neighbor[nb_j].contains(nb_n)&&neighbor[nb_m].contains(nb_n))
+						{
+							found = true;//找到了一个4-clique
+							counter++;
+							System.out.println("~~~~" + counter);
+							
+							//节点i, nb_j, nb_m, nb_n 为一个clique
+							//把3个节点添加到 common_node链表上
+							common_node.add(nb_j);
+							common_node.add(nb_m);
+							common_node.add(nb_n);
+							
+							if(visit[nb_j] == false)
+							{
+								visitednum++;
+								visit[nb_j] = true;
+							}
+							if(visit[nb_m] == false)
+							{
+								visitednum++;
+								visit[nb_m] = true;
+							}
+							if(visit[nb_n] == false)
+							{
+								visitednum++;
+								visit[nb_n] = true;
+							}
+							
+							break;
+						}		
+					}
+					break;
+				}
+				
+				if(found == true)
+				break;
+			}//结束for循环
+			
+			
+			/*
+			 * 当找到一个4-clique时，再找共享了3个节点的其他4-clique,
+			 * 其中3个节点已在common_node链表里,如果遍历到的第4个节点与这3个节点都相连，
+			 * 说明又找到一个4-clique，并且与之前的4-clique共享了3个节点
+			 * 那么这5个节点应属于同一个community
+			 */
+			if(found == true)
+			{
+				//从头开始遍历所有节点,找到common_node链表中没有的节点j
+				for(int j = 0; j < nodenum; j++)
+				{
+					if(!common_node.contains(j))
+					{
+						int sharednode = 0;//统计共享节点数
+						
+						//遍历common_node链表，查找其中的3个节点是否都与结点j
+						for(int k = 0; k < common_node.size(); k++)//common_node.size()一定是4，因为k_clique取值为4
+						{
+							int index = common_node.get(k);//依次返回common_node链表中节点的下标
+							if(neighbor[index].contains(j))
+								sharednode++;
+							
+							if(sharednode >= k_clique-1)//共享3个节点时，退出循环
+								break;
+						}
+						
+						//把新的节点j添加到common_node链表上
+						if(sharednode >= k_clique-1)
+						{
+							common_node.add(j);
+							if(visit[j] == false)
+							{
+								visitednum++;
+								visit[j] = true;
+							}
+						}
+					}
+				}
+			}
+			
+			//一次while循环之后 形成的一个common_node链表中所有节点应当属于同一个community
+				
+			Community community = new Community();
+			community.shared_node.addAll(common_node);//把common_node集合中的所有对象添加到nodelist中
+			
+			communities.add(community);//把一个社区添加到社区集合
+		}
+		
+	}
+	/*
+	 * @Show
+	 * 显示出所有划分好的社区
+	 */
+	public void Show()
+	{
+		for(int i = 0; i < communities.size(); i++)
+		{
+			System.out.print("community "+i +": ");
+			System.out.print(communities.get(i));
+		}
+	}
+	
+	public static void main(String [] args)
+	{
+		CliquePercolationMethod cpm = new CliquePercolationMethod("Graph2.txt");
+		
+		cpm.Beginning();
+		cpm.Show();
+	}
+}
+
+
+
+
+

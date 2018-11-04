@@ -1,0 +1,81 @@
+package cpm;
+
+import java.util.LinkedList;
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.IOException;
+
+public class ReadData {
+	
+	int nodenum;//节点数
+	int edgenum;//边数
+	public LinkedList<Integer> neighbor[];//顶点的表节点
+	
+	public ReadData (String filename) 
+	{	
+		try
+			{	
+				FileReader fr = new FileReader(filename);
+				BufferedReader br = new BufferedReader(fr);
+				
+				String aline = "";
+				aline = br.readLine();//读取文件第一行
+				String array[] = aline.split("\\s+");//以空白格分割字符 放入新的数组
+				nodenum = Integer.parseInt(array[0]);//取得总结点数
+				
+				System.out.println("nodenum:" + nodenum);
+				System.out.println("reading file:" + filename);
+				
+				neighbor = new LinkedList [nodenum];//顶点nodenum的邻居集
+				
+				for(int i = 0; i < nodenum; i++)
+					neighbor[i] = new LinkedList<Integer>();//给表节点分配空间
+				
+				int line = 0;//统计文件行数
+				
+				int nodeid1;
+				int nodeid2;
+				while((aline = br.readLine()) != null)
+				{
+					line++;
+					System.out.println("reading line: " + line);//显示正在读的行数
+					
+					String arrays[] = aline.split("\\s+");
+					nodeid1 = Integer.parseInt(arrays[0]);
+					nodeid2 = Integer.parseInt(arrays[1]);
+					
+					//打印正在读的两个节点
+					System.out.println(arrays[0]);
+					System.out.println(arrays[1]);
+					
+					/*
+					 * 如果nodeid1的表节点不存在nodeid2，就把这两个节点互相连入各自的表节点链表中
+					 * 并且连上一条边，把这条边放入各自节点的边集
+					 */
+					if(!neighbor[nodeid1].contains(nodeid2))
+					{
+						edgenum++;//统计边数加1
+						
+						neighbor[nodeid1].add(nodeid2);
+						neighbor[nodeid2].add(nodeid1);
+
+					}
+				}//读取文件结束
+				
+				fr.close();
+				br.close();
+				
+				//打印所有节点数和边数
+				System.out.println("nodenum: "+nodenum);
+				System.out.println("edgenum: "+edgenum);
+				System.out.println();
+			
+			}
+		catch(IOException e)
+			{	
+				System.out.println("Cannot find the file:" + filename);
+			}
+		
+	}
+
+}
