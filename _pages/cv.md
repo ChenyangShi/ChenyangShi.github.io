@@ -35,7 +35,7 @@ Related Experience
   * Accomplished computing similarity between every two documents with Cosine Distance.
   * Performed a k-means model to cluster 500 English websites to 16 classes and display represented documents in the biggest class.
   
-* 05/2017-03/2018: Overlapping Social Network Detection Algorithms Research [(Codes)](https://github.com/olivia-shi/olivia-shi.github.io/tree/master/srtp-project-codes/src/srtp/cpm).[(Slides)](https://github.com/olivia-shi/olivia-shi.github.io/tree/master/srtp-project-codes/final-presentation)   
+* 05/2017-03/2018: Overlapping Social Network Detection Algorithms Research [(Codes)](https://github.com/olivia-shi/olivia-shi.github.io/tree/master/srtp-project-codes/src/srtp/cpm).[(Slides)](https://github.com/olivia-shi/olivia-shi.github.io/blob/master/srtp-project-codes/src/srtp/final-presentation.pdf)   
   Supervisor: Hongmei Chen, Graph Data Mining.
   * Reproduced Clique Percolation Method and Weak Clique Percolation Method algorithms using java and python.
   * Visualized and analyzed community structure with Gephi, feeding data from Stanford Large Network Dataset.
