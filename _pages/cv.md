@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-<u>Here is a PDF version</u>: --->[CV$\color{blue}{MathJax}$](https://olivia-shi.github.io/files/Olivia_CV.pdf)    
+<u>Here is a PDF version</u>: --->[$\color{blue}{CV}$](https://olivia-shi.github.io/files/Olivia_CV.pdf)    
     
 Education
 ======
@@ -19,7 +19,7 @@ Education
 
 Related Experience
 ======
-* 08/2018: Kaggle Featured - Home Credit Default Risk ([【Competition Link】](https://www.kaggle.com/herlobster))    
+* 08/2018: Kaggle Featured - Home Credit Default Risk ([$\color{blue}{Competition Link}$](https://www.kaggle.com/herlobster))    
   Top 8% Brown Medal, Group Leader.
   * Performed data exploratory analysis to get a deep understanding of the big data.
   * Utilized feature engineering and domain knowledge to add more than 1000 time-series related features to boost cross-validation AUC score, and it turned out those features are 'magic' ones.
@@ -27,7 +27,7 @@ Related Experience
   * Performed Bayesian Optimization to find the optimal combination of hyper-parameters, and developed more advanced ensemble and stacking strategies to reduce variance and enhance AUC score.
   * Achieved a bronze medel with ranking **top 8%** by hard-working, effective communication and great leadership within nearly 2 month.
 
-* 04/2018: Internet Searching Engine project [【Codes】](https://github.com/olivia-shi/olivia-shi.github.io/tree/master/NLP)       
+* 04/2018: Internet Searching Engine project [$\color{blue}{Codes}$](https://github.com/olivia-shi/olivia-shi.github.io/tree/master/NLP)       
 
   Supervisor: Prof. Xiao Wu, NLP, ML.
   * Programmed web spider to filter and save 1000 websites as text, including English and Chinese.
@@ -35,7 +35,7 @@ Related Experience
   * Accomplished computing similarity between every two documents with Cosine Distance.
   * Performed a k-means model to cluster 500 English websites to 16 classes and display represented documents in the biggest class.
   
-* 05/2017-03/2018: Overlapping Social Network Detection Algorithms Research [【Codes】](https://github.com/olivia-shi/olivia-shi.github.io/tree/master/srtp-project-codes/src/srtp/cpm).[【Slides】](https://olivia-shi.github.io/srtp-project-codes/src/srtp/final-presentation.pdf)   
+* 05/2017-03/2018: Overlapping Social Network Detection Algorithms Research [$\color{blue}{Codes}$](https://github.com/olivia-shi/olivia-shi.github.io/tree/master/srtp-project-codes/src/srtp/cpm).[$\color{blue}{Slides}$](https://olivia-shi.github.io/srtp-project-codes/src/srtp/final-presentation.pdf)   
   Supervisor: Prof. Hongmei Chen, Graph Data Mining.
   * Reproduced Clique Percolation Method and Weak Clique Percolation Method algorithms using java and python.
   * Visualized and analyzed community structure with Gephi, feeding data from Stanford Large Network Dataset.
