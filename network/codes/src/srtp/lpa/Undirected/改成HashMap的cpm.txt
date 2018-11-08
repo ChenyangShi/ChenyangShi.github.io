@@ -1,0 +1,253 @@
+package cpm;
+
+import java.util.HashMap;
+import java.util.ArrayList;
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.IOException;
+
+public class ReadData {
+
+	int nodenum;//节点数
+	int edgenum;//边数
+
+	public HashMap<Integer, Integer> node_map = new HashMap<Integer, Integer>();
+	public HashMap<Integer, ArrayList<Integer>> neighbormap = new HashMap<Integer, ArrayList<Integer>>();
+
+	public ReadData (String node_file, String edge_file)
+	{
+		try
+		{
+			BufferedReader node_reader = new BufferedReader(new FileReader(node_file));
+			BufferedReader edge_reader = new BufferedReader(new FileReader(edge_file));
+
+			int id = 0;
+			String aline = "";
+			while((aline=node_reader.readLine())!=null)
+			{
+				String arrays[] = aline.split("\\s+");
+				Node new_node=new Node(Integer.parseInt(arrays[0]));
+				node_map.put(id, new_node.getName());
+				neighbormap.put(new_node.getName(),new ArrayList<Integer>());//分配Node空间
+				id++;
+			}
+			nodenum = node_map.size();
+			System.out.println("nodenum:" + nodenum);
+			node_reader.close();//关闭文件
+
+			int line = 0;//统计文件行数
+
+			String bline = "";
+			while((bline = edge_reader.readLine()) != null) //读边文件
+			{
+				line++;
+				System.out.println("reading line: " + line);//显示正在读的行数
+
+				String arrays[] = bline.split("\\s+");
+				int source_node = Integer.parseInt(arrays[0]);//create读取两个节点
+				int target_node = Integer.parseInt(arrays[1]);
+
+				//打印正在读的两个节点
+				System.out.println(arrays[0]);
+				System.out.println(arrays[1]);
+
+				if(!neighbormap.get(source_node).contains(target_node))
+				{
+					edgenum++;//统计边数加1
+					neighbormap.get(source_node).add(target_node);
+					neighbormap.get(target_node).add(source_node);
+				}
+			}//读取文件结束
+			edge_reader.close();//关闭文件
+
+			//打印所有节点数和边数
+			System.out.println("nodenum: "+nodenum);
+			System.out.println("edgenum: "+edgenum);
+			System.out.println();
+
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+	}
+}
+package cpm;
+
+import java.util.*;
+/*
+ * @CliquePercolationMethod
+ *
+ */
+
+public class CliquePercolationMethod
+{
+	int k_clique = 4;//4-clique
+
+	int nodenum;//节点数目
+	int counter = 0;//计数器 统计找到的4-clique数目,打印显示
+
+	//	LinkedList<Integer> neighbor[];//存放头节点+表节点
+	public HashMap<Integer, Integer> node_map = new HashMap<Integer, Integer>();
+	public HashMap<Integer, ArrayList<Integer>> neighbormap = new HashMap<Integer, ArrayList<Integer>>();
+	ArrayList<Community> communities = new ArrayList<Community>();;//所有社区集合
+
+	boolean visit[];
+	/*
+	 * @构造方法
+	 * 实现变量初始化以及从文件中传值
+	 */
+	public CliquePercolationMethod(String node_file, String edge_file)
+	{
+		ReadData r = new ReadData(node_file, edge_file);
+		nodenum = r.nodenum;
+
+		//初始化visit[]
+		visit = new boolean[nodenum];
+		for(int i = 0; i< nodenum; i++) //i就是node_map()的Id,以Id来索引node是否访问过
+		{
+				visit[i] = false;
+		}
+		neighbormap = r.neighbormap;
+		node_map = r.node_map;
+	}
+
+	/*
+	 *@Beginning
+	 *此方法实现派系过滤算法
+	 */
+	public void Beginning()
+	{
+		int visitednum = 0;
+		while(visitednum < nodenum)
+		{
+			for (Map.Entry etr : node_map.entrySet()) {
+				int i = (int) etr.getKey();
+				//每次for-esch循环都分配一个common_node链表
+				LinkedList<Integer> common_node = new LinkedList<Integer>();
+				if (visit[i] == false)//从头开始找未被访问过的头节点i
+				{
+					visit[i] = true;//标记已访问
+					visitednum++;
+
+					common_node.add((int) etr.getValue());//将当前访问的头节点添加进common_node链表中
+
+					boolean found = false;
+
+					/*
+			 		* 以下三层循环用于找到一个4-clique
+			 		*/
+					for (int j = 0; j < neighbormap.get(etr.getValue()).size(); j++)//遍历头节点i的所有表节点
+					{
+						int nb_j = neighbormap.get(etr.getValue()).get(j);//get()方法，获取i（Key）对应的数组（Value）中的第j+1个表结点
+
+						for (int m = j + 1; m < neighbormap.get(etr.getValue()).size(); m++) {
+							int nb_m = neighbormap.get(etr.getValue()).get(m);//获取i（Key）对应的数组（Value）中的第j+2个表结点
+
+							for (int n = m + 1; n < neighbormap.get(etr.getValue()).size(); n++) {
+								int nb_n = neighbormap.get(etr.getValue()).get(n);//获取i（Key）对应的数组（Value）中的第j+3个表结点
+
+							/*
+						 	* if用于判断是否构成一个4节点的clique
+						 	* 第j+2个表结点中存在第j+1个表结点且第j+2个表结点中存在第j+3个表结点
+						 	*/
+								if (neighbormap.get(nb_m).contains(nb_j) && neighbormap.get(nb_m).contains(nb_n) && neighbormap.get(nb_j).contains(nb_n))
+								//	if(neighbormap.get(nb_m).contains(nb_j))
+								{
+									found = true;//找到了一个4-clique
+									counter++;
+									System.out.println("~~~~" + counter);
+
+									//节点i, nb_j, nb_m, nb_n 为一个clique
+									//把3个节点添加到 common_node链表上
+									common_node.add(nb_j);
+									common_node.add(nb_m);
+									common_node.add(nb_n);
+
+									for (Map.Entry entry : node_map.entrySet()) {
+										if ((int) entry.getValue() == nb_j || (int) entry.getValue() == nb_m || (int) entry.getValue() == nb_n) {
+											if (visit[(int) entry.getKey()] == false) {
+												visitednum++;
+												visit[(int) entry.getKey()] = true;
+											}
+										}
+									}
+									break;
+								}//end for
+							}
+							break;
+						}//end for
+
+						if (found == true)
+							break;
+					}//结束外层for循环
+
+
+			/*
+			 * 当找到一个4-clique时，再找共享了3个节点的其他4-clique,
+			 * 其中3个节点已在common_node链表里,如果遍历到的第4个节点与这3个节点都相连，
+			 * 说明又找到一个4-clique，并且与之前的4-clique共享了3个节点
+			 * 那么这5个节点应属于同一个community
+			 */
+					if (found == true) {
+						//从头开始遍历所有节点,找到common_node链表中没有的节点j
+						for (Map.Entry et : node_map.entrySet()) {
+							if (!common_node.contains(et.getValue())) {
+								int sharednode = 0;//统计共享节点数
+
+								//遍历common_node链表，查找其中的3个节点是否都与结点j
+								for (int k = 0; k < common_node.size(); k++)//common_node.size()一定是4，因为k_clique取值为4
+								{
+									int node = common_node.get(k);//依次返回common_node链表中节点的下标
+									if (neighbormap.get(node).contains(et.getValue()))
+										sharednode++;
+
+									if (sharednode >= k_clique - 1)//共享3个节点时，退出循环
+										break;
+								}
+
+								//把新的节点j添加到common_node链表上
+								if (sharednode >= k_clique - 1) {
+									common_node.add((int) et.getValue());
+									if (visit[(int) et.getKey()] == false) {
+										visitednum++;
+										visit[(int) et.getKey()] = true;
+									}
+								} //end if
+							}//end if
+						}//end for
+					}//end if
+				}
+				//一次while循环之后 形成的一个common_node链表中所有节点应当属于同一个community
+
+				Community community = new Community();
+				community.shared_node.addAll(common_node);//把common_node集合中的所有对象添加到shared_node中
+				if(common_node.size() != 0)
+					communities.add(community);//把一个社区添加到社区集合
+			}
+		}
+	}
+	/*
+	 * @Show
+	 * 显示出所有划分好的社区
+	 */
+	public void Show()
+	{
+		for(int i = 0; i < communities.size(); i++)
+		{
+			System.out.print("community "+i +": ");
+			System.out.print(communities.get(i));
+		}
+	}
+
+	public static void main(String [] args)
+	{
+		CliquePercolationMethod cpm = new CliquePercolationMethod("nodefile.txt", "edgefile.txt");
+
+		cpm.Beginning();
+		cpm.Show();
+		System.out.println("End");
+	}
+}
+
+

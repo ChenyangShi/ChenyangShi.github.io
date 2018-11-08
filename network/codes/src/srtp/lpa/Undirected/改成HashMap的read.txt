@@ -1,0 +1,74 @@
+package cpm;
+
+import java.util.HashMap;
+import java.util.ArrayList;
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.IOException;
+
+public class ReadData {
+
+	int nodenum;//节点数
+	int edgenum;//边数
+
+	public HashMap<Integer, Integer> node_map = new HashMap<Integer, Integer>();
+	public HashMap<Integer, ArrayList<Integer>> neighbormap = new HashMap<Integer, ArrayList<Integer>>();
+
+	public ReadData(String node_file)
+	{
+		try
+		{
+			BufferedReader node_reader = new BufferedReader(new FileReader(node_file));
+			BufferedReader edge_reader = new BufferedReader(new FileReader(edge_file));
+
+			int id = 0;
+			String aline = "";
+			while((aline=node_reader.readLine())!=null)
+			{
+				String arrays[] = aline.split(",");
+				Node new_node=new Node(Integer.parseInt(arrays[0]));
+				node_map.put(id, new_node.getName());
+				neighbormap.put(new_node.getName(),new ArrayList<Integer>());//分配Node空间
+				id++;
+			}
+			nodenum = node_map.size();
+			System.out.println("nodenum:" + nodenum);
+			node_reader.close();//关闭文件
+
+			int line = 0;//统计文件行数
+
+			String bline = "";
+			while((bline = edge_reader.readLine()) != null) //读边文件
+			{
+				line++;
+				System.out.println("reading line: " + line);//显示正在读的行数
+
+				String arrays[] = bline.split(",");
+				int source_node = Integer.parseInt(arrays[0]);//create读取两个节点
+				int target_node = Integer.parseInt(arrays[1]);
+
+				//打印正在读的两个节点
+				System.out.println(arrays[0]);
+				System.out.println(arrays[1]);
+
+				if(!neighbormap.get(source_node).contains(target_node))
+				{
+					edgenum++;//统计边数加1
+					neighbormap.get(source_node).add(target_node);
+					neighbormap.get(target_node).add(source_node);
+				}
+			}//读取文件结束
+			edge_reader.close();//关闭文件
+
+			//打印所有节点数和边数
+			System.out.println("nodenum: "+nodenum);
+			System.out.println("edgenum: "+edgenum);
+			System.out.println();
+
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+	}
+}

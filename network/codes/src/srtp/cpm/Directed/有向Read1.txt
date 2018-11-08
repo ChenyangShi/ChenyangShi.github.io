@@ -1,0 +1,131 @@
+package cpm;
+
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.IOException;
+
+public class ReadData {
+	
+	int nodenum;//节点数
+	int edgenum;//边数
+	public ArrayList<Integer> neighbor[];//顶点的表节点
+	
+	public LinkedList<Integer> top_container[];//all in-neighbors of node i
+	public LinkedList<Integer> bottom_container[];//all out-neighbors of node i
+	
+	public ReadData (String filename) 
+	{	
+		try
+			{	
+				FileReader fr = new FileReader(filename);
+				BufferedReader br = new BufferedReader(fr);
+				
+				String aline = "";
+				aline = br.readLine();//读取文件第一行
+				String array[] = aline.split("\\s+");//以空白格分割字符 放入新的数组
+				nodenum = Integer.parseInt(array[0]);//取得总结点数
+				
+				System.out.println("nodenum:" + nodenum);
+				System.out.println("reading file:" + filename);
+				
+				//邻居表
+				neighbor = new ArrayList [nodenum];
+				for(int i = 0; i < nodenum; i++)
+					neighbor[i] = new ArrayList<Integer>();//给表节点分配空间
+		
+				/*
+				 * 给每个节点建立都两个container
+				 * 分别装所有邻接的入度节点和初度节点
+				 */
+				top_container = new LinkedList[nodenum];
+				for(int i = 0; i < nodenum; i++)
+					top_container[i] = new LinkedList<Integer>();
+				
+				bottom_container = new LinkedList[nodenum];
+				for(int j = 0; j < nodenum; j++)
+					bottom_container[j] = new LinkedList<Integer>();
+				
+				int line = 0;//统计文件行数
+				
+				int nodeid1;
+				int nodeid2;
+			//	double edgeweight;
+				while((aline = br.readLine()) != null)
+				{
+					line++;
+					System.out.println("reading line: " + line);//显示正在读的行数
+					
+					String arrays[] = aline.split("\\s+");
+					nodeid1 = Integer.parseInt(arrays[0]);
+					nodeid2 = Integer.parseInt(arrays[1]);
+				//	edgeweight = Double.parseDouble(arrays[2]);
+					
+
+					
+					//打印正在读的两个节点
+					System.out.println(arrays[0]);
+					System.out.println(arrays[1]);
+				//	System.out.println(arrays[2]);
+					
+				/*	if(!bottom_container[nodeid1].contains(nodeid2)||!top_container[nodeid2].contains(nodeid1))
+					{
+						if(!neighbor[nodeid1].contains(nodeid2))
+						{	
+							neighbor[nodeid1].add(nodeid2);
+							neighbor[nodeid2].add(nodeid1);
+						}
+						bottom_container[nodeid1].add(nodeid2);
+						top_container[nodeid2].add(nodeid1);
+						edgenum++;//统计边数加1
+					}
+				*/
+						/*
+						 * source -> target
+						 * 如果nodeid1的bottom_container不存在nodeid2
+						 * 就把节点2加入节点1的bottom_container中
+						 */
+					//	if(!neighbor[nodeid1].contains(nodeid2))
+						{	
+							neighbor[nodeid1].add(nodeid2);
+							neighbor[nodeid2].add(nodeid1);
+							
+							bottom_container[nodeid1].add(nodeid2);
+							top_container[nodeid2].add(nodeid1);
+							edgenum++;//统计边数加1
+						}
+					
+
+			
+
+					
+				}//读取文件结束
+				
+				
+				fr.close();
+				br.close();
+				
+				//打印所有节点数和边数
+				System.out.println("nodenum: "+nodenum);
+				System.out.println("edgenum: "+edgenum);
+				System.out.println();
+				System.out.print("TOP");
+				for(int i = 0; i < nodenum; i++)
+				System.out.print(top_container[i]);
+				System.out.println();
+				System.out.print("BOTTOM");
+				for(int i = 0; i < nodenum; i++)
+				System.out.print(bottom_container[i]);
+				System.out.println();
+
+			
+			}
+		catch(IOException e)
+			{	
+				System.out.println("Cannot find the file:" + filename);
+			}
+		
+	}
+}
