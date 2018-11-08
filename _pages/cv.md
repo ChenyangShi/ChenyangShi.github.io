@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-<u>Here is a PDF version</u>: ---><font color=blue>[CV](https://olivia-shi.github.io/files/Olivia_CV.pdf)</font>     
+<u>Here is a PDF version</u>: --->[<font color=blue>CV</font>](https://olivia-shi.github.io/files/Olivia_CV.pdf)    
     
 Education
 ======
