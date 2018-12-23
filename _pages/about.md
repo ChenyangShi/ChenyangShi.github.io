@@ -8,8 +8,8 @@ redirect_from:
   - /about.html
 ---
 
-Hello. This is Olivia Shi's home on the web!
+Hello. Welcome to Olivia Shi's webpage!
 
-Now, I am a senior student at Southwest Jiaotong University. My research interests are:
-* Computational Social Science, Data Science, Machine Learning and related area. 
+My research interests are:
 * Network Science for Social Science and Social Network.
+* Computational Social Science, Data Science, Machine Learning and related area. 
