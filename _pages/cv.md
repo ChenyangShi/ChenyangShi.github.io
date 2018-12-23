@@ -13,7 +13,7 @@ redirect_from:
     
 Education
 ======
-* Visiting Student in Shenzhen Institutes of Advanced Technology, Chinese Academy of Sciences, Shenzhen, Guangdong, 01/2019-06/2019     
+* Visiting Student in Shenzhen Institutes of Advanced Technology, Chinese Academy of Sciences(SICA), 01/2019-06/2019     
 
 * B.S. in Southwest Jiaotong University, Chengdu, Sichuan, 2019 (expected)
   * Major in Computer Science and Technology. 09/2016 - Now
