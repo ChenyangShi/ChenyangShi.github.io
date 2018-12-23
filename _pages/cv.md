@@ -23,42 +23,42 @@ Related Experience
 ======
 * 08/2018: Investigation on the Kaggle Competition Home Credit Default Risk based on Complex Modelling Analysis [$\color{blue}{details}$](https://olivia-shi.github.io/posts/2013/08/blog-post-2/)    
   * Exploratory Data Processing and Feature Capture
-    Checked missing values and visualized data distribution pattern; Performed imputation through replacing certain positive and negative INF values with NAN for Neutral Network (NN).    
-    Followed the former preprocessing to do data feature extraction; Facilitated the utilization of feature variables concerning one hot encoding.
-    Applied LightGBM model to refine the summarized features regarding their contributions to the model.    
+    •	Checked missing values and visualized data distribution pattern; Performed imputation through replacing certain positive and negative INF values with NAN for Neutral Network (NN).    
+    •	Followed the former preprocessing to do data feature extraction; Facilitated the utilization of feature variables concerning one hot encoding.
+    •	Applied LightGBM model to refine the summarized features regarding their contributions to the model.    
   * Feature Engineering
-    Original Features: Obtained new features based on data computing integration.    
-    Statistical Features: Enhanced the numerical variables given the categorical variables to summarize statistics.    
-    Timing characteristics: Fixed time window and number of times to construct new features and combined summarized statistics.    
+    •	Original Features: Obtained new features based on data computing integration.    
+    •	Statistical Features: Enhanced the numerical variables given the categorical variables to summarize statistics.    
+    •	Timing characteristics: Fixed time window and number of times to construct new features and combined summarized statistics.    
   * Single Model Optimization
-    Dielectric argumentation on applicable models.    
-    The inborn missing data in the data prediction negatively affected the accuracy of Neutral Network (NN);    
-    Catboost was promising for dataset containing multiple variables, but the running duration was too long.    
-    LightGBM and XGBoost could possibly accommodate the prediction due to they can automatically impute the missing values regarding the reduction on training loss during the learning process.    
-    Performed Bayesian Optimization to extend the optimal combination of hyper-parameters
+    •	Dielectric argumentation on applicable models.    
+      The inborn missing data in the data prediction negatively affected the accuracy of Neutral Network (NN);    
+      Catboost was promising for dataset containing multiple variables, but the running duration was too long.    
+      LightGBM and XGBoost could possibly accommodate the prediction due to they can automatically impute the missing values regarding the reduction on training loss during the learning process.    
+    •	Performed Bayesian Optimization to extend the optimal combination of hyper-parameters
   * Stacking Model Optimization
-    Performed 10 fold cross-validation to obtain out-of-fold prediction values as training and testing data on Logistic Regression model.    
-    Strengthened the data optimization based on the stacking model integrating LightGBM and XGBoost model.
+    •	Performed 10 fold cross-validation to obtain out-of-fold prediction values as training and testing data on Logistic Regression model.    
+    •	Strengthened the data optimization based on the stacking model integrating LightGBM and XGBoost model.
   * Results:    
-    The optimized results indicated that the Area Under Curve (AUC) evaluation on predicting performance reached 0.7979; Achieved a brown medal.     
-    The abilities of loan repayment depended on the previous applications requested to the credit bureau. 
+    •	The optimized results indicated that the Area Under Curve (AUC) evaluation on predicting performance reached 0.7979; Achieved a brown medal.     
+    •	The abilities of loan repayment depended on the previous applications requested to the credit bureau. 
 
 
 * 04/2018: Research on Internet Search Engine via Two Dimensions: Automatic Downloading and Text Classification [$\color{blue}{details}$](https://olivia-shi.github.io/posts/2012/08/blog-post-1/)       
   Supervisor: Prof. Xiao Wu, NLP, ML.
   * PART ONE: Automatic Downloading Process for English & Chinese Webpages    
-    Applied Beautiful Soup Database in Python to extract and condense the content of HTML webpages on Jupyter and then selected the useful information.    
-    Deleted the Stop Words in English via Natural Language Toolkit (NLTK) to facilitate the Porter Stemming and saved the output of simplified TXT.    
-    Performed Porter Stemming for Stop Words in Chinese in the similar way as those in English and saved the output of simplified TXT.    
+    •	Applied Beautiful Soup Database in Python to extract and condense the content of HTML webpages on Jupyter and then selected the useful information.    
+    •	Deleted the Stop Words in English via Natural Language Toolkit (NLTK) to facilitate the Porter Stemming and saved the output of simplified TXT.    
+    •	Performed Porter Stemming for Stop Words in Chinese in the similar way as those in English and saved the output of simplified TXT.    
   * Achievements:
-    All the steps were successfully integrated into a complete automatic system.    
-    Extended the chart for common Stop Words to generate adaptable chart for specific Stop Words. 
+    •	All the steps were successfully integrated into a complete automatic system.    
+    •	Extended the chart for common Stop Words to generate adaptable chart for specific Stop Words. 
 
   * PART TWO: Text Classification Based on the Similarity of Different Texts     
-    Mechanism for Similarity Comparisons:    
+    •	Mechanism for Similarity Comparisons:    
       Set the vector of the words frequency given the times of word appearance.    
       Calculated the similarity of words regarding the cosine distance of their vectors.    
-    Mechanism for Text Classification:     
+    •	Mechanism for Text Classification:     
       Transferred the text to matrix of word frequency through Term Frequency-Inverse Document Frequency (TF-IDF).    
       Performed class analysis via K-means algorithms and optimized the value of k based on Elbow Rule to divide the data into two categories.    
 
