@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-<u>Here is a PDF version</u>: --->[CV](https://olivia-shi.github.io/files/Chenyang Shi-CV-new.pdf)    
+<u>Here is a PDF version</u>: --->[CV](https://olivia-shi.github.io/files/ChenyangShi-CV-new.pdf)    
     
 Education
 ======
