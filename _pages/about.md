@@ -9,7 +9,3 @@ redirect_from:
 ---
 
 Hello. Welcome to Olivia Shi's webpage!
-
-My research interests are:
-* Network Science for Social Science and Social Network.
-* Computational Social Science, Data Science, Machine Learning and related area. 
