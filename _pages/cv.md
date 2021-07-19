@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-<u>Here is a PDF version</u>: ---->[CV](https://olivia-shi.github.io/files/ChenyangShi-CV-new.pdf)    
+<u>Here is a PDF version</u>: ---->[CV](https://chenyangshi.github.io/files/ChenyangShi-CV-new.pdf)    
     
 Education
 ======
@@ -21,7 +21,7 @@ Education
 
 Related Experience
 ======
-* 08/2018: Investigation on the Kaggle Competition Home Credit Default Risk based on Complex Modelling Analysis [details](https://olivia-shi.github.io/posts/2013/08/blog-post-2/)    
+* 08/2018: Investigation on the Kaggle Competition Home Credit Default Risk based on Complex Modelling Analysis [details](https://chenyangshi.github.io/posts/2013/08/blog-post-2/)    
   * Exploratory Data Processing and Feature Capture    
     •	Checked missing values and visualized data distribution pattern; Performed imputation through replacing certain positive and negative INF values with NAN for Neutral Network (NN).    
     •	Followed the former preprocessing to do data feature extraction; Facilitated the utilization of feature variables concerning one hot encoding.
@@ -44,7 +44,7 @@ Related Experience
     •	The abilities of loan repayment depended on the previous applications requested to the credit bureau. 
 
 
-* 04/2018: Research on Internet Search Engine via Two Dimensions: Automatic Downloading and Text Classification [details](https://olivia-shi.github.io/posts/2012/08/blog-post-1/)       
+* 04/2018: Research on Internet Search Engine via Two Dimensions: Automatic Downloading and Text Classification [details](https://chenyangshi.github.io/posts/2012/08/blog-post-1/)       
   Supervisor: Prof. Xiao Wu, NLP, ML.
   * PART ONE: Automatic Downloading Process for English & Chinese Webpages     
     •	Applied Beautiful Soup Database in Python to extract and condense the content of HTML webpages on Jupyter and then selected the useful information.    
@@ -62,7 +62,7 @@ Related Experience
       Transferred the text to matrix of word frequency through Term Frequency-Inverse Document Frequency (TF-IDF).    
       Performed class analysis via K-means algorithms and optimized the value of k based on Elbow Rule to divide the data into two categories.    
 
-* 05/2017-03/2018: Exploration on Overlapping Community Detection and Its Application on Graph Data Mining [details](https://olivia-shi.github.io/posts/2014/08/blog-post-3/)       
+* 05/2017-03/2018: Exploration on Overlapping Community Detection and Its Application on Graph Data Mining [details](https://chenyangshi.github.io/posts/2014/08/blog-post-3/)       
   Supervisor: Prof. Hongmei Chen, Graph Data Mining.
   * Preprocessed network dataset by extracting data information file into node and edge files.
   * Applied small data clusters from Stanford Large Network Dataset (SNAP) to do visualized community structure analysis for Label-based Propagation algorithms (LPA), Clique Percolation Method algorithms (CPM) verification with Gephi.
