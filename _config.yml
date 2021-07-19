@@ -7,11 +7,11 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Olivia Shi"
+title                    : "Chenyang Shi"
 title_separator          : "-"
-name                     : &name "Olivia Shi"
-description              : &description "A happy girl (∩_∩). "
-url                      : https://olivia-shi.github.io
+name                     : &name "Chenyang Shi"
+description              : &description " (∩_∩) "
+url                      : https://chenyangshi.github.io
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "olivia-shi.github.io"
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
@@ -79,13 +79,13 @@ analytics:
 
 # Site Author
 author:
-  name             : "Olivia Shi"
-  avatar           : "headshot.png"
-  bio              : "A happy girl (∩_∩). "
-  location         : "Chengdu, Sichuan, China"
+  name             : "Chenyang Shi"
+#   avatar           : "headshot.png"
+  bio              : ""
+  location         : "Shenzhen, Guangdong, China"
   employer         :
   #googlescholar    : "http://Chenyang-Shi.com"
-  email            : "Olivia.C.Shi@gmail.com"
+#   email            : "Olivia.C.Shi@gmail.com"
   uri              :
   bitbucket        :
   codepen          :
@@ -93,7 +93,7 @@ author:
   flickr           :
   facebook         : 
   foursquare       :
-  github           : "olivia-shi"
+  github           : "Chenyangshi"
   google_plus      :
   keybase          :
   instagram        : 
@@ -105,9 +105,9 @@ author:
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
   tumblr           :
-  twitter          : "Herlobster1"
+#   twitter          : "Herlobster1"
   vine             :
-  weibo            : "thebestsheep"
+#   weibo            : "thebestsheep"
   xing             :
   youtube          : 
   wikipedia        :
