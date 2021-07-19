@@ -8,4 +8,4 @@ redirect_from:
   - /about.html
 ---
 
-Hello. Welcome to Olivia Shi's webpage!
+Hello. Welcome to Chenyang Shi's webpage!
